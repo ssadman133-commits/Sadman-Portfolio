@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Sadman Sakib — CSE Student & Aspiring Software Engineer</title>
+  <meta name="description" content="Personal developer portfolio of Sadman Sakib — Computer Science & Engineering student at Southeast University, passionate about building practical software, multimedia applications, and AI-assisted engineering.">
+  <meta name="keywords" content="Sadman Sakib, Southeast University, Software Engineer, Web Developer, AI Enthusiast, PulsePlay, Bangladesh">
+  <meta name="author" content="Sadman Sakib">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sadman Sakib — CSE Student & Aspiring Software Engineer">
+  <meta property="og:description" content="Turning ideas into practical digital products through software development, AI and creative experimentation.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/sadman-portrait.png">
+
+  <!-- Google Fonts: Outfit (Editorial Display), Plus Jakarta Sans (Clean Body), JetBrains Mono (Tech Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body>
+
+  <!-- Ambient Animated Background Grid & Radial Mesh Glows -->
+  <div class="bg-ambient" aria-hidden="true">
+    <div class="mesh-orb mesh-orb-1"></div>
+    <div class="mesh-orb mesh-orb-2"></div>
+    <div class="mesh-orb mesh-orb-3"></div>
+  </div>
+  <div class="bg-grid-overlay" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       Navigation Bar
+       ========================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" id="brandLogo" aria-label="Sadman Sakib Home">
+        Sadman<span class="dot">.</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons matching reference -->
+      <div class="nav-actions">
+        <a href="#contact" class="btn-pill btn-pill-dark" id="navTalkBtn">Let's talk</a>
+        <a href="#projects" class="btn-pill btn-pill-accent" id="navProjectsBtn">Resume ↓</a>
+
+        <!-- Mobile Hamburger Button -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <ul class="mobile-menu">
+      <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+      <li><a href="#about" class="mobile-nav-link">About</a></li>
+      <li><a href="#education" class="mobile-nav-link">Education</a></li>
+      <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+      <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+      <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary" id="mobileTalkBtn">Let's Connect</a>
+  </div>
+
+  <main id="mainContent">
+
+    <!-- ================================================
+         HERO SECTION (DARK THEME REFERENCE COMPOSITION)
+    ================================================ -->
+    <section id="hero">
+
+      <!-- Top Greeting Subtitle -->
+      <div class="hero-top-greeting" id="heroGreeting">
+        👋 Hi, my name is Sadman Sakib and I am a CSE Student &amp; Aspiring Software Engineer
+      </div>
+
+      <!-- Giant Hero Typography Stack (Ref Style) -->
+      <div class="hero-title-container" id="heroTitle">
+        <span class="hero-title-solid">
+          SADMAN <a href="#projects" class="hero-icon-badge" aria-label="Explore Projects">↗</a> SAKIB
+        </span>
+        <span class="hero-title-outline">
+          PORTFOLIO
+        </span>
+      </div>
+
+      <!-- Centered Cutout Portrait Overlapping the Title -->
+      <div class="hero-portrait-wrapper" id="heroPortrait">
+        <div class="hero-portrait-motion">
+          <img src="assets/images/sadman-portrait.png" alt="Sadman Sakib" class="hero-portrait-img" id="portraitImg" />
+        </div>
+      </div>
+
+      <!-- Bottom Row Info -->
+      <div class="hero-bottom-row" id="heroBottom">
+        <div class="hero-location-tag">
+          <span>📍 Based in Bangladesh</span>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================================
+         01 / About Section (The Story)
+         ========================================================================= -->
+    <section class="section" id="about">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <div class="section-label">01 / THE STORY</div>
+          <h2 class="section-title">About Me</h2>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Story Main Narrative -->
+          <div class="story-card reveal-left">
+            <div class="story-quote-lead">
+              Driven by curiosity, building software that solves real frustrations with clean design and purposeful code.
+            </div>
+
+            <div class="story-body">
+              <p>
+                I'm a Computer Science & Engineering student at Southeast University with a strong interest in software engineering, artificial intelligence and building practical digital products.
+              </p>
+              <p>
+                I enjoy experimenting with AI and turning everyday problems into software ideas. My approach to learning is strongly project-driven — I learn by building, testing and improving real applications.
+              </p>
+              <p>
+                My long-term goal is to grow into a professional software engineer and create technology that is useful, thoughtful and impactful.
+              </p>
+            </div>
+          </div>
+
+          <!-- Story Pillars / Highlights -->
+          <div class="story-highlights-col reveal-right">
+            
+            <div class="highlight-metric-card">
+              <div class="metric-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="metric-title">Project-Driven Mindset</h3>
+                <p class="metric-desc">Mastering software fundamentals by building tangible tools and functional applications from the ground up.</p>
+              </div>
+            </div>
+
+            <div class="highlight-metric-card">
+              <div class="metric-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </div>
+              <div>
+                <h3 class="metric-title">AI Exploration</h3>
+                <p class="metric-desc">Leveraging modern AI tooling and prompt engineering to accelerate prototyping and software development workflows.</p>
+              </div>
+            </div>
+
+            <div class="highlight-metric-card">
+              <div class="metric-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="metric-title">Continuous Discipline</h3>
+                <p class="metric-desc">Dedicated academic consistency with GPA 5.00 foundational achievements in both SSC and HSC.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================================
+         02 / Education Section (Academic Journey)
+         ========================================================================= -->
+    <section class="section" id="education">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-label">02 / ACADEMIC JOURNEY</div>
+          <h2 class="section-title">Education</h2>
+          <p class="section-subtitle">
+            A solid academic foundation in Computer Science and Engineering, underpinned by sustained excellence in higher secondary education.
+          </p>
+        </div>
+
+        <div class="education-timeline">
+
+          <!-- Item 01: Southeast University -->
+          <div class="timeline-item reveal delay-1">
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <h3 class="timeline-institution">Southeast University</h3>
+                <span class="timeline-badge">Current Student</span>
+              </div>
+              <div class="timeline-degree">B.Sc. in Computer Science & Engineering</div>
+              <p class="timeline-details">
+                Department of Computer Science & Engineering. Actively studying core computing principles, algorithms, data structures, object-oriented programming, database systems, and software engineering.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 02: HSC -->
+          <div class="timeline-item reveal delay-2">
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <h3 class="timeline-institution">Holy Land College, Dinajpur</h3>
+                <span class="timeline-badge badge-gpa">GPA 5.00</span>
+              </div>
+              <div class="timeline-degree">Higher Secondary Certificate (HSC)</div>
+              <p class="timeline-details">
+                Science division. Developed a rigorous mathematical and logical foundation, analytical problem solving, and an early enthusiasm for computing technologies.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 03: SSC -->
+          <div class="timeline-item reveal delay-3">
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <h3 class="timeline-institution">Holy Land College, Dinajpur</h3>
+                <span class="timeline-badge badge-gpa">GPA 5.00</span>
+              </div>
+              <div class="timeline-degree">Secondary School Certificate (SSC)</div>
+              <p class="timeline-details">
+                Science background. Graduated with top marks, fostering scientific inquiry and self-motivated technical curiosity.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================================
+         03 / Skills Section (Precision Stack)
+         ========================================================================= -->
+    <section class="section" id="skills">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-label">03 / PRECISION STACK</div>
+          <h2 class="section-title">Skills & Technologies</h2>
+          <p class="section-subtitle">
+            Practical competencies and tools I continuously practice and expand through active project implementation.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <!-- Category 1: Languages -->
+          <div class="skill-category-card reveal delay-1">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="4 17 10 11 4 5"></polyline>
+                  <line x1="12" y1="19" x2="20" y2="19"></line>
+                </svg>
+              </div>
+              <h3 class="category-title">Languages</h3>
+            </div>
+
+            <ul class="category-tags-list">
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>C</li>
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>HTML5</li>
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>CSS3</li>
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>JavaScript</li>
+            </ul>
+          </div>
+
+          <!-- Category 2: Web & Engineering -->
+          <div class="skill-category-card reveal delay-2">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h3 class="category-title">Web & Engineering</h3>
+            </div>
+
+            <ul class="category-tags-list">
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>Responsive Web Development</li>
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>UI Implementation</li>
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>Frontend Development</li>
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>Git Version Control</li>
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>GitHub Workflows</li>
+            </ul>
+          </div>
+
+          <!-- Category 3: AI & Tools -->
+          <div class="skill-category-card reveal delay-3">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                </svg>
+              </div>
+              <h3 class="category-title">AI & Tools</h3>
+            </div>
+
+            <ul class="category-tags-list">
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>Artificial Intelligence</li>
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>AI-assisted Development</li>
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>Prompt Engineering</li>
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>Rapid Prototyping</li>
+              <li class="skill-pill"><span class="skill-pill-bullet"></span>Problem Solving</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================================
+         04 / Featured Projects (Selected Works)
+         ========================================================================= -->
+    <section class="section" id="projects">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-label">04 / SELECTED WORKS</div>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">
+            Carefully crafted digital applications and software experiments solving real personal challenges.
+          </p>
+        </div>
+
+        <div class="projects-container">
+
+          <!-- PROJECT 01: PULSEPLAY -->
+          <article class="project-card-editorial reveal">
+            <div class="project-card-body reverse-grid">
+              
+              <!-- Visual Gallery (Dual Screenshots) -->
+              <div class="project-visual-col">
+                <div class="pulseplay-gallery-grid">
+                  
+                  <!-- Screenshot 1: Music -->
+                  <div 
+                    class="project-screenshot-item" 
+                    data-lightbox="project"
+                    data-image="assets/images/pulseplay-music.jpg"
+                    data-title="PulsePlay — Dark Music Library & Player View"
+                    tabindex="0"
+                    role="button"
+                    aria-label="View PulsePlay Music Screenshot Fullscreen"
+                  >
+                    <img 
+                      src="assets/images/pulseplay-music.jpg" 
+                      alt="PulsePlay Music Interface showing auto-detected songs, categories, and dark UI"
+                      loading="lazy"
+                    >
+                    <div class="screenshot-overlay">
+                      <span class="overlay-badge">Music Interface</span>
+                      <div class="overlay-title">Audio Player View</div>
+                      <div class="overlay-prompt">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <polyline points="9 21 3 21 3 15"></polyline>
+                          <line x1="21" y1="3" x2="14" y2="10"></line>
+                          <line x1="3" y1="21" x2="10" y2="14"></line>
+                        </svg>
+                        <span>Click to view full preview</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Screenshot 2: Video -->
+                  <div 
+                    class="project-screenshot-item" 
+                    data-lightbox="project"
+                    data-image="assets/images/pulseplay-video.jpg"
+                    data-title="PulsePlay — Video Library with VLC-style Gestures"
+                    tabindex="0"
+                    role="button"
+                    aria-label="View PulsePlay Video Screenshot Fullscreen"
+                  >
+                    <img 
+                      src="assets/images/pulseplay-video.jpg" 
+                      alt="PulsePlay Video Interface showing video thumbnails, folder filtering and resolution tags"
+                      loading="lazy"
+                    >
+                    <div class="screenshot-overlay">
+                      <span class="overlay-badge">Video Interface</span>
+                      <div class="overlay-title">Video Browser View</div>
+                      <div class="overlay-prompt">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <polyline points="9 21 3 21 3 15"></polyline>
+                          <line x1="21" y1="3" x2="14" y2="10"></line>
+                          <line x1="3" y1="21" x2="10" y2="14"></line>
+                        </svg>
+                        <span>Click to view full preview</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Project Info -->
+              <div class="project-info">
+                <div class="project-meta-top">
+                  <span class="project-index">01</span>
+                  <span class="project-category">Personal Multimedia Application</span>
+                </div>
+
+                <h3 class="project-title">PulsePlay</h3>
+
+                <p class="project-description">
+                  PulsePlay is a personal multimedia application concept created from a simple frustration: wanting a cleaner music and video experience without unnecessary advertising and distractions.
+                </p>
+
+                <!-- Features Badges -->
+                <ul class="project-features-list" aria-label="Key Features">
+                  <li class="feature-tag">Music library</li>
+                  <li class="feature-tag">Video library</li>
+                  <li class="feature-tag">Search</li>
+                  <li class="feature-tag">Favorites</li>
+                  <li class="feature-tag">Recently Added</li>
+                  <li class="feature-tag">Folder filtering</li>
+                  <li class="feature-tag">Video browsing</li>
+                  <li class="feature-tag">Media thumbnails</li>
+                  <li class="feature-tag">VLC-style gestures</li>
+                  <li class="feature-tag">Dark interface</li>
+                </ul>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- PROJECT 02: AI CREATIVE PROJECTS -->
+          <article class="project-card-editorial reveal">
+            <div class="project-card-body">
+              
+              <!-- Project Info -->
+              <div class="project-info">
+                <div class="project-meta-top">
+                  <span class="project-index">02</span>
+                  <span class="project-category">AI / Software Experimentation</span>
+                </div>
+
+                <h3 class="project-title">AI Creative Projects</h3>
+
+                <p class="project-description">
+                  I regularly experiment with AI tools to turn ideas into small applications, prototypes and creative digital experiences. These experiments help me understand how AI can accelerate software development and problem solving.
+                </p>
+
+                <ul class="project-features-list" aria-label="Key Focus Areas">
+                  <li class="feature-tag">Rapid Prototyping</li>
+                  <li class="feature-tag">AI-assisted Development</li>
+                  <li class="feature-tag">Prompt Engineering</li>
+                  <li class="feature-tag">Creative Workflows</li>
+                  <li class="feature-tag">Experimental UI</li>
+                </ul>
+              </div>
+
+              <!-- Visual Preview Single -->
+              <div class="project-visual-col">
+                <div 
+                  class="project-single-preview" 
+                  data-lightbox="project"
+                  data-image="assets/images/ai-creative-experiments.jpg"
+                  data-title="AI Creative Projects — Neural Canvas & Prototyping Experiments"
+                  tabindex="0"
+                  role="button"
+                  aria-label="View AI Creative Experiments Fullscreen"
+                >
+                  <img 
+                    src="assets/images/ai-creative-experiments.jpg" 
+                    alt="AI Creative Coding & Neural Canvas Interface Mockup"
+                    loading="lazy"
+                  >
+                  <div class="screenshot-overlay">
+                    <span class="overlay-badge">AI Experimentation</span>
+                    <div class="overlay-title">Neural Prototyping Canvas</div>
+                    <div class="overlay-prompt">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <polyline points="9 21 3 21 3 15"></polyline>
+                        <line x1="21" y1="3" x2="14" y2="10"></line>
+                        <line x1="3" y1="21" x2="10" y2="14"></line>
+                      </svg>
+                      <span>Click to view full preview</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================================
+         05 / Project Experience (Deep Dive)
+         ========================================================================= -->
+    <section class="section" id="experience">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-label">05 / PROJECT EXPERIENCE</div>
+          <h2 class="section-title">Engineering Case Studies</h2>
+          <p class="section-subtitle">
+            An honest breakdown of problem framing, execution methodology, key learning curves, and functional results.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+
+          <!-- Case 1: PulsePlay -->
+          <div class="exp-card reveal delay-1">
+            <div class="exp-card-header">
+              <div class="exp-card-type">Personal Software Project</div>
+              <h3 class="exp-card-title">PulsePlay</h3>
+            </div>
+
+            <div class="exp-breakdown-list">
+              
+              <div class="exp-step-item">
+                <span class="exp-step-label">Problem</span>
+                <p class="exp-step-text">
+                  Most modern mobile media players are cluttered with intrusive ads, complex feeds, and bloated navigation when the user only wants to listen to music or watch video files smoothly.
+                </p>
+              </div>
+
+              <div class="exp-step-item">
+                <span class="exp-step-label">Approach</span>
+                <p class="exp-step-text">
+                  Designed an intuitive dark user interface centered around auto-detecting local tracks, clean category tabs, VLC-inspired swipe gestures for playback control, and lightweight video organization.
+                </p>
+              </div>
+
+              <div class="exp-step-item">
+                <span class="exp-step-label">What I Learned</span>
+                <p class="exp-step-text">
+                  Gained hands-on experience handling local media scanning, UI state updates, touch gesture interaction, responsive layout constraints, and crafting dark-mode interfaces that feel effortless to browse.
+                </p>
+              </div>
+
+              <div class="exp-step-item">
+                <span class="exp-step-label">Result</span>
+                <p class="exp-step-text">
+                  A cohesive personal multimedia application featuring instant song search, favorite filtering, video resolution badges, and smooth distraction-free media playback.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Case 2: AI-assisted Creative Development -->
+          <div class="exp-card reveal delay-2">
+            <div class="exp-card-header">
+              <div class="exp-card-type">Personal Development Experience</div>
+              <h3 class="exp-card-title">AI-assisted Creative Development</h3>
+            </div>
+
+            <div class="exp-breakdown-list">
+              
+              <div class="exp-step-item">
+                <span class="exp-step-label">Problem</span>
+                <p class="exp-step-text">
+                  Solo student developers often face bottlenecks when attempting to quickly validate software concepts, draft boilerplate code, and test experimental architectures.
+                </p>
+              </div>
+
+              <div class="exp-step-item">
+                <span class="exp-step-label">Approach</span>
+                <p class="exp-step-text">
+                  Integrated modern AI coding assistants, iterative prompt engineering, and structured code verification to prototype ideas quickly, explore novel algorithms, and build creative sandbox tools.
+                </p>
+              </div>
+
+              <div class="exp-step-item">
+                <span class="exp-step-label">What I Learned</span>
+                <p class="exp-step-text">
+                  Understood the critical importance of rigorous code review, validating edge cases, debugging generated logic, and recognizing that AI is an amplifier for disciplined engineering rather than a replacement.
+                </p>
+              </div>
+
+              <div class="exp-step-item">
+                <span class="exp-step-label">Result</span>
+                <p class="exp-step-text">
+                  Substantially accelerated the speed of creating proof-of-concept prototypes while sharpening problem-framing capabilities and technical comprehension.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================================
+         Beyond Code Section
+         ========================================================================= -->
+    <section class="section">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-label">THE HUMAN SIDE</div>
+          <h2 class="section-title">Beyond Code</h2>
+          <p class="section-subtitle">
+            What keeps me inspired, active, and balanced outside of the terminal.
+          </p>
+        </div>
+
+        <div class="beyond-code-grid">
+
+          <!-- Music -->
+          <div class="beyond-card reveal delay-1">
+            <div class="beyond-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+              </svg>
+            </div>
+            <h3 class="beyond-title">Music</h3>
+            <p class="beyond-desc">
+              I enjoy listening to music and exploring better digital music experiences.
+            </p>
+          </div>
+
+          <!-- Cricket -->
+          <div class="beyond-card reveal delay-2">
+            <div class="beyond-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                <path d="M2 12h20"></path>
+              </svg>
+            </div>
+            <h3 class="beyond-title">Cricket</h3>
+            <p class="beyond-desc">
+              I enjoy playing cricket in my free time.
+            </p>
+          </div>
+
+          <!-- AI Experiments -->
+          <div class="beyond-card reveal delay-3">
+            <div class="beyond-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <h3 class="beyond-title">AI Experiments</h3>
+            <p class="beyond-desc">
+              I like experimenting with AI and building things just to see what's possible.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================================================
+         06 / Contact Section (Get In Touch)
+         ========================================================================= -->
+    <section class="section" id="contact">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-label">06 / GET IN TOUCH</div>
+          <h2 class="section-title">Let's Build Something Amazing.</h2>
+          <p class="section-subtitle">
+            I'm always interested in learning, building and exploring new ideas. If you have an interesting project or simply want to connect, feel free to reach out.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <!-- Direct Channels -->
+          <div class="contact-info-col reveal-left">
+            <div class="contact-channels-list">
+              
+              <!-- Email -->
+              <a href="mailto:ssadman133@gmail.com" class="contact-channel-item" id="contactEmailLink">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="channel-meta">
+                  <span class="channel-label">Email</span>
+                  <span class="channel-value">ssadman133@gmail.com</span>
+                </div>
+              </a>
+
+              <!-- Phone -->
+              <a href="tel:01820045015" class="contact-channel-item" id="contactPhoneLink">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div class="channel-meta">
+                  <span class="channel-label">Phone</span>
+                  <span class="channel-value">01820045015</span>
+                </div>
+              </a>
+
+              <!-- GitHub -->
+              <a href="https://github.com/ssadman133-commits" target="_blank" rel="noopener noreferrer" class="contact-channel-item" id="contactGithubLink">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                  </svg>
+                </div>
+                <div class="channel-meta">
+                  <span class="channel-label">GitHub</span>
+                  <span class="channel-value">github.com/ssadman133-commits</span>
+                </div>
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" class="contact-channel-item" id="contactLinkedinLink">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="channel-meta">
+                  <span class="channel-label">LinkedIn</span>
+                  <span class="channel-value">Connect on LinkedIn</span>
+                </div>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-card reveal-right">
+            <form id="contactForm" novalidate>
+              
+              <div class="form-group">
+                <label for="senderName" class="form-label">Your Name</label>
+                <input 
+                  type="text" 
+                  id="senderName" 
+                  name="name" 
+                  class="form-input" 
+                  placeholder="e.g. Alex Morgan" 
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="senderEmail" class="form-label">Your Email</label>
+                <input 
+                  type="email" 
+                  id="senderEmail" 
+                  name="email" 
+                  class="form-input" 
+                  placeholder="alex@example.com" 
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="senderMessage" class="form-label">Message</label>
+                <textarea 
+                  id="senderMessage" 
+                  name="message" 
+                  class="form-textarea" 
+                  placeholder="Hi Sadman, I'd like to talk about..." 
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="sendBtn">
+                <span>Send Message →</span>
+              </button>
+
+              <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        Sadman<span class="dot">.</span>
+      </div>
+      
+      <p class="footer-tagline">
+        CSE Student • Aspiring Software Engineer
+      </p>
+
+      <ul class="footer-social-links">
+        <li>
+          <a href="https://github.com/ssadman133-commits" target="_blank" rel="noopener noreferrer" class="footer-social-link">GitHub</a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" class="footer-social-link">LinkedIn</a>
+        </li>
+        <li>
+          <a href="mailto:ssadman133@gmail.com" class="footer-social-link">Email</a>
+        </li>
+      </ul>
+
+      <div class="footer-copyright">
+        © <span id="currentYear">2026</span> Sadman Sakib. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       Back to Top Button
+       ========================================================================= -->
+  <button class="back-to-top" id="backToTopBtn" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- =========================================================================
+       Fullscreen Lightbox Modal
+       ========================================================================= -->
+  <div class="lightbox-modal" id="projectLightbox" aria-hidden="true" role="dialog" aria-label="Project Screenshot Preview">
+    <button class="lightbox-close-btn" aria-label="Close Preview (ESC)">
+      &times;
+    </button>
+    <button class="lightbox-nav-btn lightbox-prev" aria-label="Previous Screenshot">
+      &#8249;
+    </button>
+    <button class="lightbox-nav-btn lightbox-next" aria-label="Next Screenshot">
+      &#8250;
+    </button>
+
+    <div class="lightbox-content-wrap lightbox-backdrop-target">
+      <img src="" alt="Project Screenshot" class="lightbox-image">
+      <div class="lightbox-meta">
+        <span class="lightbox-caption"></span>
+        <span class="lightbox-counter"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vanilla Scripts -->
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/lightbox.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
