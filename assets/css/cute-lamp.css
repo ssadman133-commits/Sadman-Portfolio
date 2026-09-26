@@ -1,0 +1,530 @@
+/* ==========================================================================
+   CUTE LAMP - INTERACTIVE INTRO EXPERIENCE
+   Matches user's reference: Sleeping Lamp -> Pull String -> Wakes Up & Glows -> Portfolio Reveal
+   ========================================================================== */
+
+/* Scroll Lock & Cursor Management while Lamp is Active */
+body.lamp-intro-active {
+  overflow: hidden !important;
+}
+
+body.lamp-intro-active .custom-cursor-dot,
+body.lamp-intro-active .custom-cursor-glow {
+  opacity: 0 !important;
+  display: none !important;
+  pointer-events: none !important;
+}
+
+/* Portfolio Initial Dimmed State during Lamp Intro */
+body.lamp-intro-active .site-header,
+body.lamp-intro-active #mainContent {
+  transform: scale(0.97) translateY(12px);
+  filter: blur(8px) brightness(0.65);
+  opacity: 0.35;
+  transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.25s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 1.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Portfolio Smooth Bloom & Unfold Animation upon Lamp Light Up */
+body.portfolio-revealing .site-header,
+body.portfolio-revealing #mainContent {
+  transform: scale(1) translateY(0);
+  filter: blur(0px) brightness(1);
+  opacity: 1;
+}
+
+/* Fullscreen Lamp Intro Overlay */
+.cute-lamp-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0b0e17;
+  background-image: 
+    radial-gradient(circle at 50% 45%, #151928 0%, #0b0e17 70%, #06080d 100%);
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 1s cubic-bezier(0.25, 1, 0.5, 1),
+              filter 1s ease,
+              visibility 1s ease;
+}
+
+/* Background Warm Glow when Light Turns ON */
+.cute-lamp-overlay::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  transform: translate(-50%, -45%) scale(0.6);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 235, 175, 0.32) 0%, rgba(168, 145, 245, 0.2) 35%, rgba(11, 14, 23, 0) 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: blur(40px);
+}
+
+.cute-lamp-overlay.is-lit::before {
+  opacity: 1;
+  transform: translate(-50%, -45%) scale(1.4);
+}
+
+/* Expanding Warm Light Burst (Triggers after lamp lights up) */
+.lamp-light-burst {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  background: radial-gradient(circle, 
+    rgba(255, 255, 255, 1) 0%, 
+    rgba(255, 242, 190, 0.95) 25%, 
+    rgba(196, 172, 255, 0.75) 50%, 
+    rgba(139, 92, 246, 0.35) 75%, 
+    rgba(11, 14, 23, 0) 100%
+  );
+  pointer-events: none;
+  opacity: 0;
+  z-index: 5;
+  filter: blur(10px);
+}
+
+.cute-lamp-overlay.is-transitioning .lamp-light-burst {
+  animation: lightBurstExpand 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes lightBurstExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0;
+    filter: blur(8px);
+  }
+  25% {
+    opacity: 1;
+    filter: blur(16px);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(32);
+    opacity: 0;
+    filter: blur(50px);
+  }
+}
+
+/* Transitioning State (Dissolving overlay into the lit portfolio) */
+.cute-lamp-overlay.is-transitioning {
+  opacity: 0;
+  transform: scale(1.08);
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+/* Final Hidden State */
+.cute-lamp-overlay.is-revealed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: none !important;
+}
+
+/* Top Skip Button */
+.lamp-skip-btn {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #94a3b8;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.lamp-skip-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Content Container */
+.lamp-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
+  padding: 20px;
+}
+
+/* Interactive Hint (Centered & sleek) */
+.lamp-hint {
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #9d8df1;
+  margin: 0 0 24px 0;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(167, 139, 250, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.22);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  transition: all 0.4s ease;
+  animation: lampHintPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes lampHintPulse {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(-2px);
+    opacity: 1;
+    border-color: rgba(167, 139, 250, 0.5);
+    box-shadow: 0 0 18px rgba(167, 139, 250, 0.25);
+  }
+}
+
+.cute-lamp-overlay.is-lit .lamp-hint {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+/* SVG Lamp Wrapper with Celebration Bounce */
+.lamp-svg-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: 50% 85%;
+}
+
+@keyframes lampAwakenJoy {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  25% {
+    transform: scale(1.05, 0.95) translateY(4px);
+  }
+  50% {
+    transform: scale(0.96, 1.06) translateY(-10px) rotate(-1.5deg);
+  }
+  75% {
+    transform: scale(1.02, 0.98) translateY(-2px) rotate(1deg);
+  }
+  100% {
+    transform: scale(1) translateY(0) rotate(0);
+  }
+}
+
+.cute-lamp-overlay.is-lit .lamp-svg-wrap {
+  animation: lampAwakenJoy 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.lamp-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.6));
+}
+
+/* --------------------------------------------------------------------------
+   Lamp Elements & Animations
+   -------------------------------------------------------------------------- */
+
+/* Lampshade Fill Transition */
+.lamp-shade-body {
+  fill: #343946;
+  transition: fill 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cute-lamp-overlay.is-lit .lamp-shade-body {
+  fill: #a698eb; /* soft pastel lavender / lilac matching image 2 */
+  filter: drop-shadow(0 0 18px rgba(166, 152, 235, 0.4));
+}
+
+/* Stem / Pole Transition */
+.lamp-stem {
+  fill: #444b5b;
+  transition: fill 0.4s ease;
+}
+
+.cute-lamp-overlay.is-lit .lamp-stem {
+  fill: url(#stemLitGradient);
+}
+
+/* Base Transition */
+.lamp-base-outer {
+  fill: #2d323e;
+  transition: fill 0.4s ease;
+}
+
+.lamp-base-inner {
+  fill: #3e4454;
+  transition: fill 0.4s ease;
+}
+
+.cute-lamp-overlay.is-lit .lamp-base-outer {
+  fill: #928ea8;
+}
+
+.cute-lamp-overlay.is-lit .lamp-base-inner {
+  fill: #ffffff;
+}
+
+/* Faces Swapping */
+.lamp-face-sleeping {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.lamp-face-awake {
+  opacity: 0;
+  transform: translateY(4px) scale(0.95);
+  transform-origin: 180px 190px;
+  transition: opacity 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cute-lamp-overlay.is-lit .lamp-face-sleeping {
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+}
+
+.cute-lamp-overlay.is-lit .lamp-face-awake {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Floating "Z z" animation for sleeping state */
+.sleep-z {
+  fill: #7e8b9f;
+  font-family: var(--font-display, 'Outfit', sans-serif);
+  font-weight: 700;
+  font-style: italic;
+  pointer-events: none;
+}
+
+.sleep-z-1 {
+  animation: floatZ1 2.4s infinite ease-in-out;
+}
+
+.sleep-z-2 {
+  animation: floatZ2 2.4s infinite ease-in-out 0.8s;
+}
+
+@keyframes floatZ1 {
+  0% {
+    transform: translate(0, 0) scale(0.85);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.9;
+  }
+  80% {
+    transform: translate(8px, -16px) scale(1.1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(12px, -24px) scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes floatZ2 {
+  0% {
+    transform: translate(0, 0) scale(0.9);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.95;
+  }
+  80% {
+    transform: translate(10px, -20px) scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(15px, -30px) scale(1.25);
+    opacity: 0;
+  }
+}
+
+.cute-lamp-overlay.is-lit .sleep-z {
+  opacity: 0 !important;
+  animation: none;
+}
+
+/* Light Beam & Glow */
+.lamp-light-beam {
+  opacity: 0;
+  transform: scaleY(0.7);
+  transform-origin: 180px 245px;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.lamp-rim-glow {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.cute-lamp-overlay.is-lit .lamp-light-beam {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.cute-lamp-overlay.is-lit .lamp-rim-glow {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Pull Cord (String & Toggle Ball)
+   -------------------------------------------------------------------------- */
+.lamp-cord-group {
+  cursor: pointer;
+  cursor: -webkit-grab;
+  cursor: grab;
+  outline: none;
+}
+
+.lamp-cord-group:active,
+.lamp-cord-group.is-dragging {
+  cursor: grabbing;
+}
+
+.lamp-cord-string {
+  stroke: #596173;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke 0.3s ease;
+}
+
+.lamp-cord-knob {
+  fill: #596173;
+  transition: fill 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.cute-lamp-overlay.is-lit .lamp-cord-string {
+  stroke: #ffffff;
+}
+
+.cute-lamp-overlay.is-lit .lamp-cord-knob {
+  fill: #ffffff;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+}
+
+/* Subtle bobbing animation on the cord to invite user to pull */
+.lamp-cord-group.is-idle {
+  animation: cordIdleBob 3s ease-in-out infinite;
+  transform-origin: 228px 245px;
+}
+
+@keyframes cordIdleBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+.lamp-cord-group:hover .lamp-cord-knob {
+  fill: #a78bfa;
+}
+
+.cute-lamp-overlay.is-lit .lamp-cord-group {
+  animation: none;
+  cursor: default;
+}
+
+/* Header Mini-Lamp Replay Button */
+.nav-lamp-replay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-right: 4px;
+}
+
+.nav-lamp-replay-btn:hover {
+  background: rgba(167, 139, 250, 0.15);
+  border-color: rgba(167, 139, 250, 0.4);
+  color: #a78bfa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.25);
+}
+
+.nav-lamp-replay-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+
+.nav-lamp-replay-btn:hover svg {
+  transform: rotate(8deg);
+}
+
+/* Small screen adjustments */
+@media (max-width: 500px) {
+  .lamp-title {
+    font-size: 1.85rem;
+  }
+  .lamp-hint {
+    font-size: 0.85rem;
+    padding: 5px 12px;
+  }
+  .lamp-svg-wrap {
+    max-width: 310px;
+  }
+  .lamp-skip-btn {
+    top: 16px;
+    right: 16px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

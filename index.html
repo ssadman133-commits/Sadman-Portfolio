@@ -24,8 +24,138 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/cute-lamp.css">
 </head>
 <body>
+
+  <!-- =========================================================================
+       Cute Lamp Interactive Intro Overlay (Matches User Reference)
+       ========================================================================= -->
+  <div class="cute-lamp-overlay" id="cuteLampOverlay" role="dialog" aria-modal="true" aria-label="Cute Lamp Portfolio Entrance">
+    <!-- Skip Button -->
+    <button class="lamp-skip-btn" id="lampSkipBtn" aria-label="Skip Lamp Animation">
+      Skip Intro <span>&rarr;</span>
+    </button>
+
+    <div class="lamp-stage">
+      <p class="lamp-hint">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        Pull cord to light up &amp; enter
+      </p>
+
+      <!-- Expanding light flash burst during transition -->
+      <div class="lamp-light-burst" id="lampLightBurst" aria-hidden="true"></div>
+
+      <div class="lamp-svg-wrap">
+        <svg class="lamp-svg" viewBox="0 0 360 460" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Downward Light Beam Gradient (Warm golden radiance) -->
+            <linearGradient id="lampBeamGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#fff6d1" stop-opacity="0.88" />
+              <stop offset="18%" stop-color="#feee9e" stop-opacity="0.55" />
+              <stop offset="60%" stop-color="#fcd34d" stop-opacity="0.22" />
+              <stop offset="90%" stop-color="#f59e0b" stop-opacity="0.05" />
+              <stop offset="100%" stop-color="#0b0e17" stop-opacity="0" />
+            </linearGradient>
+
+            <!-- Under-Shade Bulb Glow Gradient -->
+            <radialGradient id="rimGlowGradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+              <stop offset="40%" stop-color="#fff4b3" stop-opacity="0.95" />
+              <stop offset="75%" stop-color="#fde047" stop-opacity="0.5" />
+              <stop offset="100%" stop-color="#fbbf24" stop-opacity="0" />
+            </radialGradient>
+
+            <!-- Stem Lit Gradient (White front highlight, soft lavender shadow) -->
+            <linearGradient id="stemLitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#bfbbd6" />
+              <stop offset="45%" stop-color="#ffffff" />
+              <stop offset="100%" stop-color="#dedae9" />
+            </linearGradient>
+
+            <!-- Soft Shadow under base -->
+            <radialGradient id="deskShadow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#000000" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+
+          <!-- Desk Shadow -->
+          <ellipse cx="180" cy="405" rx="65" ry="14" fill="url(#deskShadow)" />
+
+          <!-- Downward Light Beam Cone (Visible when Lit) -->
+          <polygon class="lamp-light-beam" points="88,245 272,245 350,448 10,448" fill="url(#lampBeamGradient)" />
+
+          <!-- Base Outer Rim -->
+          <ellipse class="lamp-base-outer" cx="180" cy="390" rx="55" ry="16" />
+
+          <!-- Base Top Surface -->
+          <ellipse class="lamp-base-inner" cx="180" cy="386" rx="50" ry="12" />
+
+          <!-- Stem / Stand Pole -->
+          <rect class="lamp-stem" x="174" y="240" width="12" height="148" rx="6" />
+
+          <!-- Under Rim Glow Disk (Visible when Lit) -->
+          <ellipse class="lamp-rim-glow" cx="180" cy="245" rx="92" ry="12" fill="url(#rimGlowGradient)" />
+
+          <!-- Lampshade Body -->
+          <path class="lamp-shade-body" d="
+            M 132 110 
+            L 228 110 
+            C 238 110, 244 116, 247 125 
+            L 273 234 
+            C 276 244, 268 245, 258 245 
+            L 102 245 
+            C 92 245, 84 244, 87 234 
+            L 113 125 
+            C 116 116, 122 110, 132 110 Z
+          " />
+
+          <!-- Face: Sleeping State -->
+          <g class="lamp-face-sleeping" id="lampFaceSleeping">
+            <!-- Left Sleeping Eye -->
+            <path d="M 148 186 Q 160 196 172 186" fill="none" stroke="#1d202b" stroke-width="4.5" stroke-linecap="round" />
+            <!-- Right Sleeping Eye -->
+            <path d="M 188 186 Q 200 196 212 186" fill="none" stroke="#1d202b" stroke-width="4.5" stroke-linecap="round" />
+            <!-- Little Smile -->
+            <path d="M 174 199 Q 180 206 186 199" fill="none" stroke="#1d202b" stroke-width="3.5" stroke-linecap="round" />
+            <!-- Soft Cheeks -->
+            <circle cx="140" cy="196" r="7.5" fill="#f472b6" opacity="0.35" />
+            <circle cx="220" cy="196" r="7.5" fill="#f472b6" opacity="0.35" />
+
+            <!-- Floating Z z snoring letters -->
+            <text x="232" y="145" class="sleep-z sleep-z-1" font-size="19">z</text>
+            <text x="246" y="126" class="sleep-z sleep-z-2" font-size="24">Z</text>
+          </g>
+
+          <!-- Face: Awake & Happy State -->
+          <g class="lamp-face-awake" id="lampFaceAwake">
+            <!-- Left Joyful Curved Eye -->
+            <path d="M 146 184 Q 160 169 174 184" fill="none" stroke="#1c1630" stroke-width="5" stroke-linecap="round" />
+            <!-- Right Joyful Curved Eye -->
+            <path d="M 186 184 Q 200 169 214 184" fill="none" stroke="#1c1630" stroke-width="5" stroke-linecap="round" />
+            <!-- Cheerful Open Mouth -->
+            <path d="M 168 193 Q 180 194 192 193 C 192 211 168 211 168 193 Z" fill="#1c1630" />
+            <!-- Cute Pink Tongue -->
+            <path d="M 174 204 Q 180 198 186 204 C 185 209 175 209 174 204 Z" fill="#ff708f" />
+            <!-- Bright Blushing Cheeks -->
+            <circle cx="138" cy="194" r="8.5" fill="#ff6b8b" opacity="0.8" />
+            <circle cx="222" cy="194" r="8.5" fill="#ff6b8b" opacity="0.8" />
+          </g>
+
+          <!-- Interactive Pull Cord -->
+          <g class="lamp-cord-group" id="lampCordGroup" role="button" aria-label="Pull lamp cord">
+            <!-- Shade attachment ring -->
+            <circle cx="228" cy="246" r="3.5" fill="#444b5b" />
+            <!-- Cord String -->
+            <line class="lamp-cord-string" id="lampCordString" x1="228" y1="247" x2="228" y2="328" />
+            <!-- Pull Knob / Bead -->
+            <ellipse class="lamp-cord-knob" id="lampCordKnob" cx="228" cy="338" rx="8" ry="11" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
 
   <!-- Ambient Animated Background Grid & Radial Mesh Glows -->
   <div class="bg-ambient" aria-hidden="true">
@@ -59,6 +189,16 @@
 
       <!-- Action Buttons matching reference -->
       <div class="nav-actions">
+        <!-- Cute Lamp Replay Button -->
+        <button class="nav-lamp-replay-btn" id="navLampReplayBtn" title="Replay Cute Lamp" aria-label="Replay Cute Lamp Intro">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21h6" />
+            <path d="M12 17v4" />
+            <path d="M6 10l2.5-7h7l2.5 7H6z" />
+            <path d="M17 10v2a1 1 0 0 0 1 1" />
+            <circle cx="18" cy="14" r="1.5" fill="currentColor" />
+          </svg>
+        </button>
         <a href="#contact" class="btn-pill btn-pill-dark" id="navTalkBtn">Let's talk</a>
         <a href="#projects" class="btn-pill btn-pill-accent" id="navProjectsBtn">Resume ↓</a>
 
@@ -908,6 +1048,7 @@
   <!-- Vanilla Scripts -->
   <script src="assets/js/animations.js"></script>
   <script src="assets/js/lightbox.js"></script>
+  <script src="assets/js/cute-lamp.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
