@@ -181,4 +181,32 @@
     yearElement.textContent = new Date().getFullYear();
   }
 
+  /* --------------------------------------------------------------------------
+     7. Tactile Keyboard Sound for CONTACT Dock Keycaps
+     -------------------------------------------------------------------------- */
+  const keycaps = document.querySelectorAll('.keycap-btn');
+  function playKeyClickSound() {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      if (ctx.state === 'suspended') ctx.resume();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(750, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(180, ctx.currentTime + 0.04);
+      gain.gain.setValueAtTime(0.16, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.045);
+    } catch (e) {}
+  }
+
+  keycaps.forEach((btn) => {
+    btn.addEventListener('click', playKeyClickSound);
+  });
+
 })();
